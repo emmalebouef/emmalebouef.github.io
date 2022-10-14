@@ -13088,8 +13088,10 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Goals of This Project:</strong></p>
 <ol>
-<li>Determine which performance metrics are determinats of winning races.</li>
-<li>Determine if performance or location is an indicator of economic success of a Formuala One Race Weekend.</li>
+<li><strong>Determine which performance metrics are determinats of winning races.</strong>
+<em>I plan to utilize different datasets on results, pitstops, and qualifying rounds to determine correlations between these metrics and race results</em></li>
+<li><strong>Determine if performance or location is an indicator of economic success of a Formuala One Race Weekend.</strong>
+<em>I hope to add in datasets on driver salary, profit from each race, team budgets, and other economic indicators to determine if money truly is an important factor in Formula One</em></li>
 </ol>
 
 </div>
@@ -13170,7 +13172,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># mounting my google drive</span>
@@ -13206,7 +13208,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># importing important packages I will need </span>
@@ -13232,18 +13234,18 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: geopandas in /usr/local/lib/python3.7/dist-packages (0.10.2)
+Requirement already satisfied: fiona&gt;=1.8 in /usr/local/lib/python3.7/dist-packages (from geopandas) (1.8.21)
 Requirement already satisfied: pandas&gt;=0.25.0 in /usr/local/lib/python3.7/dist-packages (from geopandas) (1.3.5)
 Requirement already satisfied: pyproj&gt;=2.2.0 in /usr/local/lib/python3.7/dist-packages (from geopandas) (3.2.1)
-Requirement already satisfied: fiona&gt;=1.8 in /usr/local/lib/python3.7/dist-packages (from geopandas) (1.8.21)
 Requirement already satisfied: shapely&gt;=1.6 in /usr/local/lib/python3.7/dist-packages (from geopandas) (1.8.4)
 Requirement already satisfied: cligj&gt;=0.5 in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (0.7.2)
-Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (2022.9.24)
-Requirement already satisfied: click&gt;=4.0 in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (7.1.2)
-Requirement already satisfied: six&gt;=1.7 in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (1.15.0)
 Requirement already satisfied: munch in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (2.5.0)
-Requirement already satisfied: setuptools in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (57.4.0)
+Requirement already satisfied: six&gt;=1.7 in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (1.15.0)
 Requirement already satisfied: click-plugins&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (1.1.1)
 Requirement already satisfied: attrs&gt;=17 in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (22.1.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (2022.9.24)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (57.4.0)
+Requirement already satisfied: click&gt;=4.0 in /usr/local/lib/python3.7/dist-packages (from fiona&gt;=1.8-&gt;geopandas) (7.1.2)
 Requirement already satisfied: pytz&gt;=2017.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.25.0-&gt;geopandas) (2022.4)
 Requirement already satisfied: python-dateutil&gt;=2.7.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.25.0-&gt;geopandas) (2.8.2)
 Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist-packages (from pandas&gt;=0.25.0-&gt;geopandas) (1.21.6)
@@ -13257,7 +13259,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[125]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># reading each of the datasets into a dataframe </span>
@@ -13295,7 +13297,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="prompt input_prompt">In&nbsp;[126]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">circuits</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13311,13 +13313,13 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[87]:</div>
+    <div class="prompt output_prompt">Out[126]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-  <div id="df-beb6442b-3bf0-4656-8580-366bf852070d">
+  <div id="df-73ff0265-fd70-4590-9a1b-51a6cda21115">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -13412,7 +13414,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-beb6442b-3bf0-4656-8580-366bf852070d')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-73ff0265-fd70-4590-9a1b-51a6cda21115')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -13463,12 +13465,12 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
       <script>
         const buttonEl =
-          document.querySelector('#df-beb6442b-3bf0-4656-8580-366bf852070d button.colab-df-convert');
+          document.querySelector('#df-73ff0265-fd70-4590-9a1b-51a6cda21115 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-beb6442b-3bf0-4656-8580-366bf852070d');
+          const element = document.querySelector('#df-73ff0265-fd70-4590-9a1b-51a6cda21115');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -13498,7 +13500,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># Creating a map that shows where Formula One races have occurred over the past 70+ years</span>
@@ -13566,7 +13568,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">constructors_final</span> <span class="o">=</span> <span class="n">constructor_standings</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">constructors</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;constructorId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;nationality&#39;</span><span class="p">,</span><span class="s1">&#39;url&#39;</span><span class="p">,</span><span class="s1">&#39;positionText&#39;</span><span class="p">,</span><span class="s1">&#39;wins&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
@@ -13583,13 +13585,13 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[89]:</div>
+    <div class="prompt output_prompt">Out[128]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-  <div id="df-ed426bd6-1b57-4ed4-96fd-db88210fab83">
+  <div id="df-54b63cb9-3c74-467b-884e-59fed803eff5">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -13733,7 +13735,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </table>
 <p>12841 rows × 7 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-ed426bd6-1b57-4ed4-96fd-db88210fab83')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-54b63cb9-3c74-467b-884e-59fed803eff5')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -13784,12 +13786,12 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
       <script>
         const buttonEl =
-          document.querySelector('#df-ed426bd6-1b57-4ed4-96fd-db88210fab83 button.colab-df-convert');
+          document.querySelector('#df-54b63cb9-3c74-467b-884e-59fed803eff5 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-ed426bd6-1b57-4ed4-96fd-db88210fab83');
+          const element = document.querySelector('#df-54b63cb9-3c74-467b-884e-59fed803eff5');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -13819,7 +13821,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">driver_standings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13835,13 +13837,13 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[66]:</div>
+    <div class="prompt output_prompt">Out[129]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-  <div id="df-2218a9f8-fc2c-49dd-81c6-a7d3f991a247">
+  <div id="df-99d5d201-adbb-47fb-b5f5-f013c2ea4812">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -13924,7 +13926,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-2218a9f8-fc2c-49dd-81c6-a7d3f991a247')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-99d5d201-adbb-47fb-b5f5-f013c2ea4812')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -13975,12 +13977,12 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
       <script>
         const buttonEl =
-          document.querySelector('#df-2218a9f8-fc2c-49dd-81c6-a7d3f991a247 button.colab-df-convert');
+          document.querySelector('#df-99d5d201-adbb-47fb-b5f5-f013c2ea4812 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-2218a9f8-fc2c-49dd-81c6-a7d3f991a247');
+          const element = document.querySelector('#df-99d5d201-adbb-47fb-b5f5-f013c2ea4812');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -14010,7 +14012,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">drivers</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14020,200 +14022,10 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[67]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-
-  <div id="df-4d0b573c-6091-4c08-be3e-03717088cf6a">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>driverId</th>
-      <th>driverRef</th>
-      <th>number</th>
-      <th>code</th>
-      <th>forename</th>
-      <th>surname</th>
-      <th>dob</th>
-      <th>nationality</th>
-      <th>url</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>hamilton</td>
-      <td>44</td>
-      <td>HAM</td>
-      <td>Lewis</td>
-      <td>Hamilton</td>
-      <td>1985-01-07</td>
-      <td>British</td>
-      <td>http://en.wikipedia.org/wiki/Lewis_Hamilton</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>heidfeld</td>
-      <td>\N</td>
-      <td>HEI</td>
-      <td>Nick</td>
-      <td>Heidfeld</td>
-      <td>1977-05-10</td>
-      <td>German</td>
-      <td>http://en.wikipedia.org/wiki/Nick_Heidfeld</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>rosberg</td>
-      <td>6</td>
-      <td>ROS</td>
-      <td>Nico</td>
-      <td>Rosberg</td>
-      <td>1985-06-27</td>
-      <td>German</td>
-      <td>http://en.wikipedia.org/wiki/Nico_Rosberg</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>alonso</td>
-      <td>14</td>
-      <td>ALO</td>
-      <td>Fernando</td>
-      <td>Alonso</td>
-      <td>1981-07-29</td>
-      <td>Spanish</td>
-      <td>http://en.wikipedia.org/wiki/Fernando_Alonso</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>kovalainen</td>
-      <td>\N</td>
-      <td>KOV</td>
-      <td>Heikki</td>
-      <td>Kovalainen</td>
-      <td>1981-10-19</td>
-      <td>Finnish</td>
-      <td>http://en.wikipedia.org/wiki/Heikki_Kovalainen</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-4d0b573c-6091-4c08-be3e-03717088cf6a')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-4d0b573c-6091-4c08-be3e-03717088cf6a button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-4d0b573c-6091-4c08-be3e-03717088cf6a');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">lap_times</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14229,13 +14041,13 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[68]:</div>
+    <div class="prompt output_prompt">Out[92]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-  <div id="df-ee2b2914-51dd-4810-a492-9c7219fb975d">
+  <div id="df-7e69eee7-efdf-44ab-ac39-8adb9e0f99f0">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -14312,7 +14124,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-ee2b2914-51dd-4810-a492-9c7219fb975d')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7e69eee7-efdf-44ab-ac39-8adb9e0f99f0')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -14363,12 +14175,12 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
       <script>
         const buttonEl =
-          document.querySelector('#df-ee2b2914-51dd-4810-a492-9c7219fb975d button.colab-df-convert');
+          document.querySelector('#df-7e69eee7-efdf-44ab-ac39-8adb9e0f99f0 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-ee2b2914-51dd-4810-a492-9c7219fb975d');
+          const element = document.querySelector('#df-7e69eee7-efdf-44ab-ac39-8adb9e0f99f0');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -14398,7 +14210,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">pit_stops</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14414,13 +14226,13 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[69]:</div>
+    <div class="prompt output_prompt">Out[93]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-  <div id="df-0cba9b11-fb4c-40c6-ab82-253ba1850bab">
+  <div id="df-b84cc232-f6ff-4c38-95c8-df94d69e977e">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -14503,7 +14315,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-0cba9b11-fb4c-40c6-ab82-253ba1850bab')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-b84cc232-f6ff-4c38-95c8-df94d69e977e')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -14554,12 +14366,12 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
       <script>
         const buttonEl =
-          document.querySelector('#df-0cba9b11-fb4c-40c6-ab82-253ba1850bab button.colab-df-convert');
+          document.querySelector('#df-b84cc232-f6ff-4c38-95c8-df94d69e977e button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-0cba9b11-fb4c-40c6-ab82-253ba1850bab');
+          const element = document.querySelector('#df-b84cc232-f6ff-4c38-95c8-df94d69e977e');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -14589,7 +14401,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">qualifying</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14605,13 +14417,13 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[70]:</div>
+    <div class="prompt output_prompt">Out[94]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-  <div id="df-f033a7a5-5b5a-4fe8-9dca-c7c8496396e5">
+  <div id="df-84673ea2-288f-4e78-81b6-21a98859747f">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -14706,7 +14518,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-f033a7a5-5b5a-4fe8-9dca-c7c8496396e5')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-84673ea2-288f-4e78-81b6-21a98859747f')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -14757,12 +14569,12 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
       <script>
         const buttonEl =
-          document.querySelector('#df-f033a7a5-5b5a-4fe8-9dca-c7c8496396e5 button.colab-df-convert');
+          document.querySelector('#df-84673ea2-288f-4e78-81b6-21a98859747f button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-f033a7a5-5b5a-4fe8-9dca-c7c8496396e5');
+          const element = document.querySelector('#df-84673ea2-288f-4e78-81b6-21a98859747f');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -14792,7 +14604,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># Cleaning uneccesary rows</span>
@@ -14810,13 +14622,13 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[71]:</div>
+    <div class="prompt output_prompt">Out[95]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-  <div id="df-1ab25cf3-85eb-4b76-8323-20cce5c22068">
+  <div id="df-33f3827e-b592-486c-82e8-917705761f51">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -14843,7 +14655,6 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
       <th>name</th>
       <th>date</th>
       <th>time</th>
-      <th>url</th>
     </tr>
   </thead>
   <tbody>
@@ -14856,7 +14667,6 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
       <td>Australian Grand Prix</td>
       <td>2009-03-29</td>
       <td>06:00:00</td>
-      <td>http://en.wikipedia.org/wiki/2009_Australian_G...</td>
     </tr>
     <tr>
       <th>1</th>
@@ -14867,7 +14677,6 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
       <td>Malaysian Grand Prix</td>
       <td>2009-04-05</td>
       <td>09:00:00</td>
-      <td>http://en.wikipedia.org/wiki/2009_Malaysian_Gr...</td>
     </tr>
     <tr>
       <th>2</th>
@@ -14878,7 +14687,6 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
       <td>Chinese Grand Prix</td>
       <td>2009-04-19</td>
       <td>07:00:00</td>
-      <td>http://en.wikipedia.org/wiki/2009_Chinese_Gran...</td>
     </tr>
     <tr>
       <th>3</th>
@@ -14889,7 +14697,6 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
       <td>Bahrain Grand Prix</td>
       <td>2009-04-26</td>
       <td>12:00:00</td>
-      <td>http://en.wikipedia.org/wiki/2009_Bahrain_Gran...</td>
     </tr>
     <tr>
       <th>4</th>
@@ -14900,12 +14707,11 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
       <td>Spanish Grand Prix</td>
       <td>2009-05-10</td>
       <td>12:00:00</td>
-      <td>http://en.wikipedia.org/wiki/2009_Spanish_Gran...</td>
     </tr>
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-1ab25cf3-85eb-4b76-8323-20cce5c22068')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-33f3827e-b592-486c-82e8-917705761f51')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -14956,12 +14762,12 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
       <script>
         const buttonEl =
-          document.querySelector('#df-1ab25cf3-85eb-4b76-8323-20cce5c22068 button.colab-df-convert');
+          document.querySelector('#df-33f3827e-b592-486c-82e8-917705761f51 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-1ab25cf3-85eb-4b76-8323-20cce5c22068');
+          const element = document.querySelector('#df-33f3827e-b592-486c-82e8-917705761f51');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -14991,7 +14797,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="prompt input_prompt">In&nbsp;[96]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># Adding text information on the status of each driver in a race. </span>
@@ -15011,13 +14817,13 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[84]:</div>
+    <div class="prompt output_prompt">Out[96]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-  <div id="df-88bca033-6ef1-4a7c-9ee0-20e9bec4f9ae">
+  <div id="df-5c20a7a7-a91a-4b93-bd3b-7c8be82d5d87">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -15305,7 +15111,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </table>
 <p>25660 rows × 19 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-88bca033-6ef1-4a7c-9ee0-20e9bec4f9ae')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-5c20a7a7-a91a-4b93-bd3b-7c8be82d5d87')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -15356,12 +15162,12 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
       <script>
         const buttonEl =
-          document.querySelector('#df-88bca033-6ef1-4a7c-9ee0-20e9bec4f9ae button.colab-df-convert');
+          document.querySelector('#df-5c20a7a7-a91a-4b93-bd3b-7c8be82d5d87 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-88bca033-6ef1-4a7c-9ee0-20e9bec4f9ae');
+          const element = document.querySelector('#df-5c20a7a7-a91a-4b93-bd3b-7c8be82d5d87');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -15391,7 +15197,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="n">sprint_results</span> <span class="o">=</span> <span class="n">sprint_results</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;positionOrder&#39;</span><span class="p">,</span><span class="s1">&#39;positionText&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -15408,13 +15214,13 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[78]:</div>
+    <div class="prompt output_prompt">Out[97]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-  <div id="df-24fdb66a-7783-48ed-b165-9f6a85ddc26f">
+  <div id="df-9801aea9-4d4c-4215-a914-5aa56b47fff6">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -15630,7 +15436,7 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </table>
 <p>100 rows × 13 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-24fdb66a-7783-48ed-b165-9f6a85ddc26f')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-9801aea9-4d4c-4215-a914-5aa56b47fff6')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -15681,12 +15487,358 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
       <script>
         const buttonEl =
-          document.querySelector('#df-24fdb66a-7783-48ed-b165-9f6a85ddc26f button.colab-df-convert');
+          document.querySelector('#df-9801aea9-4d4c-4215-a914-5aa56b47fff6 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-24fdb66a-7783-48ed-b165-9f6a85ddc26f');
+          const element = document.querySelector('#df-9801aea9-4d4c-4215-a914-5aa56b47fff6');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Trying to find some Summary Statistics</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># Do those who qualify well, and ultimatly race well, have shorter or faster pitstops?</span>
+<span class="n">pit_qual</span><span class="o">=</span> <span class="n">pit_stops</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">qualifying</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;outer&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;raceId&quot;</span><span class="p">,</span><span class="s2">&quot;driverId&quot;</span><span class="p">])</span>
+<span class="n">pit_qual</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[102]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+  <div id="df-f72b9ec9-c1aa-4c9d-894c-f01b691adbe2">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>raceId</th>
+      <th>driverId</th>
+      <th>stop</th>
+      <th>lap</th>
+      <th>time</th>
+      <th>duration</th>
+      <th>milliseconds</th>
+      <th>qualifyId</th>
+      <th>constructorId</th>
+      <th>number</th>
+      <th>position</th>
+      <th>q1</th>
+      <th>q2</th>
+      <th>q3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>841</td>
+      <td>153</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>17:05:23</td>
+      <td>26.898</td>
+      <td>26898.0</td>
+      <td>4548.0</td>
+      <td>5.0</td>
+      <td>19.0</td>
+      <td>12.0</td>
+      <td>1:26.620</td>
+      <td>1:26.103</td>
+      <td>\N</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>841</td>
+      <td>153</td>
+      <td>2.0</td>
+      <td>17.0</td>
+      <td>17:31:06</td>
+      <td>24.463</td>
+      <td>24463.0</td>
+      <td>4548.0</td>
+      <td>5.0</td>
+      <td>19.0</td>
+      <td>12.0</td>
+      <td>1:26.620</td>
+      <td>1:26.103</td>
+      <td>\N</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>841</td>
+      <td>153</td>
+      <td>3.0</td>
+      <td>35.0</td>
+      <td>17:59:45</td>
+      <td>26.348</td>
+      <td>26348.0</td>
+      <td>4548.0</td>
+      <td>5.0</td>
+      <td>19.0</td>
+      <td>12.0</td>
+      <td>1:26.620</td>
+      <td>1:26.103</td>
+      <td>\N</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>841</td>
+      <td>30</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>17:05:52</td>
+      <td>25.021</td>
+      <td>25021.0</td>
+      <td>4547.0</td>
+      <td>131.0</td>
+      <td>7.0</td>
+      <td>11.0</td>
+      <td>1:25.962</td>
+      <td>1:25.971</td>
+      <td>\N</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>841</td>
+      <td>30</td>
+      <td>2.0</td>
+      <td>17.0</td>
+      <td>17:32:08</td>
+      <td>23.988</td>
+      <td>23988.0</td>
+      <td>4547.0</td>
+      <td>131.0</td>
+      <td>7.0</td>
+      <td>11.0</td>
+      <td>1:25.962</td>
+      <td>1:25.971</td>
+      <td>\N</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>14174</th>
+      <td>1082</td>
+      <td>815</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9365.0</td>
+      <td>9.0</td>
+      <td>11.0</td>
+      <td>13.0</td>
+      <td>1:33.929</td>
+      <td>1:33.127</td>
+      <td>\N</td>
+    </tr>
+    <tr>
+      <th>14175</th>
+      <td>1083</td>
+      <td>847</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9380.0</td>
+      <td>131.0</td>
+      <td>63.0</td>
+      <td>8.0</td>
+      <td>1:40.028</td>
+      <td>1:41.725</td>
+      <td>1:42.161</td>
+    </tr>
+    <tr>
+      <th>14176</th>
+      <td>1083</td>
+      <td>855</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9381.0</td>
+      <td>51.0</td>
+      <td>24.0</td>
+      <td>9.0</td>
+      <td>1:40.791</td>
+      <td>1:42.640</td>
+      <td>1:42.719</td>
+    </tr>
+    <tr>
+      <th>14177</th>
+      <td>1083</td>
+      <td>848</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9388.0</td>
+      <td>3.0</td>
+      <td>23.0</td>
+      <td>16.0</td>
+      <td>1:42.078</td>
+      <td>\N</td>
+      <td>\N</td>
+    </tr>
+    <tr>
+      <th>14178</th>
+      <td>1085</td>
+      <td>844</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9413.0</td>
+      <td>6.0</td>
+      <td>16.0</td>
+      <td>1.0</td>
+      <td>1:31.727</td>
+      <td>1:31.216</td>
+      <td>1:30.872</td>
+    </tr>
+  </tbody>
+</table>
+<p>14179 rows × 14 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-f72b9ec9-c1aa-4c9d-894c-f01b691adbe2')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-f72b9ec9-c1aa-4c9d-894c-f01b691adbe2 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-f72b9ec9-c1aa-4c9d-894c-f01b691adbe2');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -15716,7 +15868,43 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">pit_qual</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">pit_qual</span><span class="p">[</span><span class="s1">&#39;milliseconds&#39;</span><span class="p">])</span>
+<span class="c1"># There is a slight negative correlation. </span>
+<span class="c1"># As position increases (which means they drove worse), the time spend in pitstops decreased. </span>
+<span class="c1"># Those who raced well, on average, have slightly longer pitstops.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[103]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-0.015119818104610494</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-python"><pre><span></span><span class="c1"># Converting my CoLab to html so that I can upload this file to Github</span>
@@ -15739,14 +15927,14 @@ Requirement already satisfied: numpy&gt;=1.17.3 in /usr/local/lib/python3.7/dist
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[NbConvertApp] Converting notebook /content/drive/MyDrive/finaltutorial.ipynb to html
-[NbConvertApp] Writing 372708 bytes to /content/drive/MyDrive/finaltutorial.html
+[NbConvertApp] Writing 430887 bytes to /content/drive/MyDrive/finaltutorial.html
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[37]:</div>
+    <div class="prompt output_prompt">Out[98]:</div>
 
 
 
